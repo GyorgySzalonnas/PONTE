@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  postgres:
+    image: ponte-postgresql
+    container_name: ponte-postgres
+    build:
+       context: ./postgres
+    ports:
+       - 5432:5432
+    volumes:
+       - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+    postgres_data:

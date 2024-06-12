@@ -1,0 +1,28 @@
+server:
+  port: 8090
+
+spring:
+  security:
+    user:
+      name: postgres
+      password: password
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://localhost:5432/userdb
+    username: postgres
+    password: password
+
+logging:
+  level:
+    org:
+      springframework: info
+
+
+
+spring.mvc.log-request-details: true
