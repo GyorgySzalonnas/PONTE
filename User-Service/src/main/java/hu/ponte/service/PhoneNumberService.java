@@ -1,16 +1,13 @@
 package hu.ponte.service;
 
 import hu.ponte.converter.PhoneNumberConverter;
-import hu.ponte.dto.AddressDTO;
 import hu.ponte.dto.PhoneNumberDTO;
-import hu.ponte.model.Address;
 import hu.ponte.model.User;
 import hu.ponte.repository.PhoneNumberRepository;
 import hu.ponte.model.PhoneNumber;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 

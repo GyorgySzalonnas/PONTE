@@ -1,8 +1,6 @@
 package hu.ponte.controller;
 
-import hu.ponte.dto.AddressDTO;
 import hu.ponte.dto.PhoneNumberDTO;
-import hu.ponte.service.AddressService;
 import hu.ponte.service.PhoneNumberService;
 import org.springframework.beans.factory.annotation.Autowired;
 

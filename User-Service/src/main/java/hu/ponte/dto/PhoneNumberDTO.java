@@ -1,11 +1,5 @@
 package hu.ponte.dto;
 
-import hu.ponte.model.PhoneNumber;
-import hu.ponte.model.User;
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-
 public class PhoneNumberDTO {
 
     private Long id;

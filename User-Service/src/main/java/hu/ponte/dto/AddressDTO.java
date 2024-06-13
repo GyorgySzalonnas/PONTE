@@ -1,9 +1,5 @@
 package hu.ponte.dto;
 
-import hu.ponte.model.Address;
-import hu.ponte.model.User;
-import jakarta.persistence.*;
-
 public class AddressDTO {
     private Long userId;
     private Long id;

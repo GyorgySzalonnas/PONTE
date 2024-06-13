@@ -1,7 +1,5 @@
 package hu.ponte.model;
 
-import hu.ponte.dto.AddressDTO;
-import hu.ponte.dto.PhoneNumberDTO;
 import jakarta.persistence.*;
 
 @Entity

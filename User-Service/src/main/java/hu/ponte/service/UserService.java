@@ -3,8 +3,6 @@ package hu.ponte.service;
 import hu.ponte.converter.AddressConverter;
 import hu.ponte.converter.PhoneNumberConverter;
 import hu.ponte.converter.UserConverter;
-import hu.ponte.dto.AddressDTO;
-import hu.ponte.dto.PhoneNumberDTO;
 import hu.ponte.dto.UserDTO;
 import hu.ponte.model.Address;
 import hu.ponte.model.PhoneNumber;

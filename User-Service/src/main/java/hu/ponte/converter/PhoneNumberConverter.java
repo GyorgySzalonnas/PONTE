@@ -1,8 +1,6 @@
 package hu.ponte.converter;
 
-import hu.ponte.dto.AddressDTO;
 import hu.ponte.dto.PhoneNumberDTO;
-import hu.ponte.model.Address;
 import hu.ponte.model.PhoneNumber;
 import org.springframework.stereotype.Service;
 
