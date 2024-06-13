@@ -1,5 +1,8 @@
 package hu.ponte.dto;
 
+/**
+ * Address Data Transfer Object
+ */
 public class AddressDTO {
     private Long userId;
     private Long id;

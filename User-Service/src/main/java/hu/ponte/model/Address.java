@@ -2,6 +2,9 @@ package hu.ponte.model;
 
 import jakarta.persistence.*;
 
+/**
+ * Class that represents an address of a user.
+ */
 @Entity
 @Table(name = "address")
 public class Address {

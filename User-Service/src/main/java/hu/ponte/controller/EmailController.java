@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
+/**
+ * Controller for user emails.
+ */
 @RestController
 @RequestMapping("/api/email")
 public class EmailController {

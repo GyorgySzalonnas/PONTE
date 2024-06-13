@@ -15,6 +15,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+/**
+ * Service class to manage User related operations.
+ */
 @Service
 public class UserService {
     @Autowired
@@ -33,6 +36,12 @@ public class UserService {
         return userRepository.findAll().stream().map(user -> userConverter.toDTO(user)).collect(Collectors.toList());
     }
 
+    /**
+     * @param userDTO
+     * @return
+     *
+     * Updates a User with the DTO-s non-null elements.
+     */
     public UserDTO updatePerson(UserDTO userDTO){
         User user = userConverter.toEntity(this.findById(userDTO.getUserId()));
         if (user != null) {
@@ -40,6 +49,8 @@ public class UserService {
                 user.setFirstName(userDTO.getFirstName());
             if(!userDTO.getLastName().isBlank())
                 user.setLastName(userDTO.getLastName());
+            if(!userDTO.getEmails().isEmpty())
+                user.setEmails(userDTO.getEmails());
             if(userDTO.getAddresses() != null)
                 user.setAddresses(userDTO.getAddresses().stream().map(addressDTO -> addressConverter.toEntity(addressDTO)).collect(Collectors.toSet()));
             if(userDTO.getPhoneNumbers() != null)

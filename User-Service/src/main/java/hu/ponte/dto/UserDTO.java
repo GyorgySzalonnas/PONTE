@@ -3,6 +3,10 @@ package hu.ponte.dto;
 import java.util.HashSet;
 import java.util.Set;
 
+
+/**
+ * User Data Transfer Object
+ */
 public class UserDTO {
 
     private Long userId;

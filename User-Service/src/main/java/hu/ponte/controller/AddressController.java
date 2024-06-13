@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
+/**
+ * Controller for Address objects.
+ */
 @RestController
 @RequestMapping("/api/address")
 public class AddressController {

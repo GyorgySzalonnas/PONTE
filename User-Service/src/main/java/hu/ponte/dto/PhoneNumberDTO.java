@@ -1,5 +1,8 @@
 package hu.ponte.dto;
 
+/**
+ * PhoneNumber Data Transfer Object
+ */
 public class PhoneNumberDTO {
 
     private Long id;

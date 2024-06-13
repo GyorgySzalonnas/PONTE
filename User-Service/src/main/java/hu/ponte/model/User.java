@@ -6,6 +6,10 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+
+/**
+ * Class that represents a user.
+ */
 @Entity
 @Table(name = "users")
 public class User {

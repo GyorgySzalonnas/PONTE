@@ -4,6 +4,9 @@ import hu.ponte.dto.AddressDTO;
 import hu.ponte.model.Address;
 import org.springframework.stereotype.Service;
 
+/**
+ * Class to convert to and from Address and AddressDTO
+ */
 @Service
 public class AddressConverter implements IConverter<Address, AddressDTO> {
 

@@ -4,6 +4,9 @@ import hu.ponte.dto.PhoneNumberDTO;
 import hu.ponte.model.PhoneNumber;
 import org.springframework.stereotype.Service;
 
+/**
+ * Class to convert to and from PhoneNumber and PhoneNumberDTO
+ */
 @Service
 public class PhoneNumberConverter implements IConverter<PhoneNumber, PhoneNumberDTO> {
 

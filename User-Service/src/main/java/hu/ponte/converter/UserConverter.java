@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.stream.Collectors;
 
+/**
+ * Class to convert to and from User and UserDTO
+ */
 @Service
 public class UserConverter  implements IConverter<User, UserDTO>{
 

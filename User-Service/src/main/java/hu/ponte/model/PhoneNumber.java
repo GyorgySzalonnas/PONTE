@@ -2,6 +2,9 @@ package hu.ponte.model;
 
 import jakarta.persistence.*;
 
+/**
+ * Class that represents a phone number of a user.
+ */
 @Entity
 @Table(name = "phonennumber")
 public class PhoneNumber {

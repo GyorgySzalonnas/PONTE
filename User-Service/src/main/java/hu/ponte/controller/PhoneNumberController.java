@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
+/**
+ * Controller for PhoneNumber objects.
+ */
 @RestController
 @RequestMapping("/api/phone")
 public class PhoneNumberController {
