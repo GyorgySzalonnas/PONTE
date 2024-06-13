@@ -17,12 +17,12 @@ public class AddressController {
     AddressService addressService;
 
     @GetMapping("/all/{userId}")
-    public Set<AddressDTO> getAllForUser(@PathVariable long userId){
+    public Set<AddressDTO> getAllForUser( long userId){
         return addressService.getAllForUser(userId);
     }
 
     @DeleteMapping("/{phoneNumberId}")
-    public void deleteById(@PathVariable long addressId){
+    public void deleteById(long addressId){
         addressService.deleteById(addressId);
     }
 

@@ -18,12 +18,12 @@ public class PhoneNumberController {
     PhoneNumberService phoneNumberService;
 
     @GetMapping("/all/{userId}")
-    public Set<PhoneNumberDTO> getAllForUser(@PathVariable long userId){
+    public Set<PhoneNumberDTO> getAllForUser(long userId){
         return phoneNumberService.getAllForUser(userId);
     }
 
     @DeleteMapping("/{userId}/{phoneNumberId}")
-    public void deleteForUser(@PathVariable long userId, @PathVariable long phoneNumberId){
+    public void deleteForUser(long userId, long phoneNumberId){
         phoneNumberService.deleteForUser(userId, phoneNumberId);
     }
 
