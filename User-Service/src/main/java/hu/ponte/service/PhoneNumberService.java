@@ -27,7 +27,7 @@ public class PhoneNumberService {
         PhoneNumber findBy = new PhoneNumber();
         findBy.setUser(new User(userId));
         return phoneNumberRepository.findAll(Example.of(findBy)).stream().map(
-                        address -> phoneNumberConverter.toPhoneNumberDTO(address))
+                        address -> phoneNumberConverter.toDTO(address))
                 .collect(Collectors.toSet());
     }
 
@@ -36,6 +36,6 @@ public class PhoneNumberService {
     }
 
     public PhoneNumberDTO add(PhoneNumberDTO phoneNumberDTO) {
-        return phoneNumberConverter.toPhoneNumberDTO(phoneNumberRepository.save(phoneNumberConverter.toPhoneNumber(phoneNumberDTO)));
+        return phoneNumberConverter.toDTO(phoneNumberRepository.save(phoneNumberConverter.toEntity(phoneNumberDTO)));
     }
 }

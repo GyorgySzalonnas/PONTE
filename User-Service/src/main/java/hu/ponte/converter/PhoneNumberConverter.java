@@ -1,13 +1,16 @@
 package hu.ponte.converter;
 
+import hu.ponte.dto.AddressDTO;
 import hu.ponte.dto.PhoneNumberDTO;
+import hu.ponte.model.Address;
 import hu.ponte.model.PhoneNumber;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PhoneNumberConverter {
+public class PhoneNumberConverter implements IConverter<PhoneNumber, PhoneNumberDTO> {
 
-    public PhoneNumberDTO toPhoneNumberDTO(PhoneNumber phoneNumber){
+    @Override
+    public PhoneNumberDTO toDTO(PhoneNumber phoneNumber){
         PhoneNumberDTO dto = new PhoneNumberDTO();
         dto.setId(phoneNumber.getId());
         dto.setCountryCode(phoneNumber.getCountryCode());
@@ -16,7 +19,8 @@ public class PhoneNumberConverter {
         return dto;
     }
 
-    public PhoneNumber toPhoneNumber(PhoneNumberDTO phoneNumberDTO) {
+    @Override
+    public PhoneNumber toEntity(PhoneNumberDTO phoneNumberDTO) {
         PhoneNumber phoneNumber = new PhoneNumber();
         phoneNumber.setCountryCode(phoneNumberDTO.getCountryCode());
         phoneNumber.setAreaCode(phoneNumberDTO.getAreaCode());

@@ -30,31 +30,31 @@ public class UserService {
     private PhoneNumberConverter phoneNumberConverter;
 
     public List<UserDTO> findAll() {
-        return userRepository.findAll().stream().map(user -> userConverter.toUserDTO(user)).collect(Collectors.toList());
+        return userRepository.findAll().stream().map(user -> userConverter.toDTO(user)).collect(Collectors.toList());
     }
 
     public UserDTO updatePerson(UserDTO userDTO){
-        User user = userConverter.toUser(this.findById(userDTO.getUserId()));
+        User user = userConverter.toEntity(this.findById(userDTO.getUserId()));
         if (user != null) {
             if(!userDTO.getFirstName().isBlank())
                 user.setFirstName(userDTO.getFirstName());
             if(!userDTO.getLastName().isBlank())
                 user.setLastName(userDTO.getLastName());
             if(userDTO.getAddresses() != null)
-                user.setAddresses(userDTO.getAddresses().stream().map(addressDTO -> addressConverter.toAddress(addressDTO)).collect(Collectors.toSet()));
+                user.setAddresses(userDTO.getAddresses().stream().map(addressDTO -> addressConverter.toEntity(addressDTO)).collect(Collectors.toSet()));
             if(userDTO.getPhoneNumbers() != null)
-                user.setPhoneNumbers(userDTO.getPhoneNumbers().stream().map(numberDTO -> phoneNumberConverter.toPhoneNumber(numberDTO)).collect(Collectors.toSet()));
+                user.setPhoneNumbers(userDTO.getPhoneNumbers().stream().map(numberDTO -> phoneNumberConverter.toEntity(numberDTO)).collect(Collectors.toSet()));
         }
         return null;
     }
 
     public UserDTO save(UserDTO userDTO) {
-        User user = userConverter.toUser(userDTO);
+        User user = userConverter.toEntity(userDTO);
         for(Address address : user.getAddresses())
             address.setUser(user);
         for(PhoneNumber phoneNumber : user.getPhoneNumbers())
             phoneNumber.setUser(user);
-        return userConverter.toUserDTO(userRepository.save(user));
+        return userConverter.toDTO(userRepository.save(user));
     }
 
     public void deleteById(Long id) {
@@ -62,6 +62,6 @@ public class UserService {
     }
 
     public UserDTO findById(Long id) {
-        return userConverter.toUserDTO(userRepository.findById(id).orElse(null));
+        return userConverter.toDTO(userRepository.findById(id).orElse(null));
     }
 }

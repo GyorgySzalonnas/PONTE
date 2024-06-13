@@ -25,7 +25,7 @@ public class AddressService {
         Address findBy = new Address();
         findBy.setUser(new User(userId));
         return addressRepository.findAll(Example.of(findBy)).stream().map(
-                address -> addressConverter.toAddressDTO(address))
+                address -> addressConverter.toDTO(address))
                 .collect(Collectors.toSet());
     }
 
@@ -34,6 +34,6 @@ public class AddressService {
     }
 
     public AddressDTO add(AddressDTO addressDTO) {
-        return addressConverter.toAddressDTO(addressRepository.save(addressConverter.toAddress(addressDTO)));
+        return addressConverter.toDTO(addressRepository.save(addressConverter.toEntity(addressDTO)));
     }
 }

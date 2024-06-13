@@ -5,9 +5,10 @@ import hu.ponte.model.Address;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AddressConverter {
+public class AddressConverter implements IConverter<Address, AddressDTO> {
 
-    public AddressDTO toAddressDTO(Address address){
+    @Override
+    public AddressDTO toDTO(Address address){
         AddressDTO dto = new AddressDTO();
         dto.setAddressName(address.getAddressName());
         dto.setCountry(address.getCountry());
@@ -23,7 +24,8 @@ public class AddressConverter {
         return dto;
     }
 
-    public Address toAddress(AddressDTO addressDTO){
+    @Override
+    public Address toEntity(AddressDTO addressDTO){
         Address address = new Address();
         address.setAddressName(addressDTO.getAddressName());
         address.setCountry(addressDTO.getCountry());
