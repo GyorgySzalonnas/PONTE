@@ -11,6 +11,8 @@ public class UserDTO {
 
     private String lastName;
 
+    private Set<String> emails = new HashSet<>();
+
     private Set<AddressDTO> addresses = new HashSet<>();
 
     private Set<PhoneNumberDTO> phoneNumbers = new HashSet<>();
@@ -38,6 +40,10 @@ public class UserDTO {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    public Set<String> getEmails() { return emails; }
+
+    public void setEmails(Set<String> emails) { this.emails = emails; }
 
     public Set<AddressDTO> getAddresses() {
         return addresses;

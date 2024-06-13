@@ -5,10 +5,12 @@ import hu.ponte.dto.AddressDTO;
 import hu.ponte.model.Address;
 import hu.ponte.model.User;
 import hu.ponte.repository.AddressRepository;
+import hu.ponte.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -29,8 +31,8 @@ public class AddressService {
                 .collect(Collectors.toSet());
     }
 
-    public void deleteById(long id) {
-        addressRepository.deleteById(id);
+    public void deleteById(long addressId) {
+        addressRepository.deleteById(addressId);
     }
 
     public AddressDTO add(AddressDTO addressDTO) {

@@ -59,6 +59,10 @@ public class User {
         this.lastName = lastName;
     }
 
+    public Set<String> getEmails() { return emails; }
+
+    public void setEmails(Set<String> emails) {this.emails = emails; }
+
     public Set<Address> getAddresses() {
         return addresses;
     }

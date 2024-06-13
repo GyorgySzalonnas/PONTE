@@ -22,6 +22,7 @@ public class UserConverter  implements IConverter<User, UserDTO>{
         dto.setUserId(user.getUserId());
         dto.setFirstName(user.getFirstName());
         dto.setLastName(user.getLastName());
+        dto.setEmails(user.getEmails());
         dto.setAddresses(user.getAddresses().stream().map(address -> addressConverter.toDTO(address)).collect(Collectors.toSet()));
         dto.setPhoneNumbers(user.getPhoneNumbers().stream().map(number -> phoneNumberConverter.toDTO(number)).collect(Collectors.toSet()));
         return dto;
@@ -32,6 +33,7 @@ public class UserConverter  implements IConverter<User, UserDTO>{
         User user = new User();
         user.setFirstName(userDTO.getFirstName());
         user.setLastName(userDTO.getLastName());
+        user.setEmails(userDTO.getEmails());
         user.setAddresses(userDTO.getAddresses().stream().map(addressDTO -> addressConverter.toEntity(addressDTO)).collect(Collectors.toSet()));
         user.setPhoneNumbers(userDTO.getPhoneNumbers().stream().map(phoneNumberDTO -> phoneNumberConverter.toEntity(phoneNumberDTO)).collect(Collectors.toSet()));
         return user;

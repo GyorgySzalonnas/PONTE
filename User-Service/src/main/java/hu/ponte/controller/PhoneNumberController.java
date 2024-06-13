@@ -3,23 +3,29 @@ package hu.ponte.controller;
 import hu.ponte.dto.PhoneNumberDTO;
 import hu.ponte.service.PhoneNumberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
+@RestController
+@RequestMapping("/api/phone")
 public class PhoneNumberController {
 
     @Autowired
     PhoneNumberService phoneNumberService;
 
-    public Set<PhoneNumberDTO> getAllForUser(long userId){
+    @GetMapping("/all/{userId}")
+    public Set<PhoneNumberDTO> getAllForUser(@PathVariable long userId){
         return phoneNumberService.getAllForUser(userId);
     }
 
-    public void deleteById(long id){
-        phoneNumberService.deleteById(id);
+    @DeleteMapping("/{userId}/{phoneNumberId}")
+    public void deleteForUser(@PathVariable long userId, @PathVariable long phoneNumberId){
+        phoneNumberService.deleteForUser(userId, phoneNumberId);
     }
 
-    public PhoneNumberDTO add(PhoneNumberDTO addressDTO){
+    @PutMapping("/add")
+    public PhoneNumberDTO add(@RequestBody PhoneNumberDTO addressDTO){
         return phoneNumberService.add(addressDTO);
     }
 }

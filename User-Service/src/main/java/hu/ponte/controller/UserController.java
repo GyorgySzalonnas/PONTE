@@ -1,6 +1,7 @@
 package hu.ponte.controller;
 
 import hu.ponte.dto.UserDTO;
+import hu.ponte.exception.InputValidationException;
 import hu.ponte.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,12 +26,16 @@ public class UserController {
     }
 
     @PostMapping("/create")
-    public UserDTO createUser(@RequestBody UserDTO userDTO) {
+    public UserDTO createUser(@RequestBody UserDTO userDTO) throws InputValidationException {
+        if(userDTO.getEmails().isEmpty() && userDTO.getPhoneNumbers().isEmpty())
+            throw new InputValidationException("Emails and phone numbers cant be both null!");
         return userService.save(userDTO);
     }
 
     @PutMapping("/update")
-    public UserDTO updatePerson(@RequestBody UserDTO userDTO) {
+    public UserDTO updatePerson(@RequestBody UserDTO userDTO) throws InputValidationException {
+        if(userDTO.getEmails().isEmpty() && userDTO.getPhoneNumbers().isEmpty())
+            throw new InputValidationException("Emails and phone numbers cant be both null!");
         return userService.save(userDTO);
     }
 
