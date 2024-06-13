@@ -34,6 +34,8 @@ public class UserConverter  implements IConverter<User, UserDTO>{
     @Override
     public User toEntity(UserDTO userDTO) {
         User user = new User();
+        if(userDTO.getUserId() != null)
+            user.setUserId(userDTO.getUserId());
         user.setFirstName(userDTO.getFirstName());
         user.setLastName(userDTO.getLastName());
         user.setEmails(userDTO.getEmails());
