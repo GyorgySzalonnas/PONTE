@@ -1,62 +1,32 @@
-package hu.ponte.model;
+package hu.ponte.dto;
 
-import hu.ponte.dto.AddressDTO;
-import hu.ponte.dto.PhoneNumberDTO;
+import hu.ponte.model.Address;
+import hu.ponte.model.User;
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "address")
-public class Address {
-
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class AddressDTO {
+    private Long userId;
     private Long id;
-
-    @Column(nullable = false, length = 25)
     private String addressName;
-
-    @Column(nullable = false, length = 25)
     private String country;
-
-    @Column(length = 25)
     private String state;
-
-    @Column(length = 25)
     private String county;
-
-    @Column(nullable = false, length = 25)
     private String city;
-
-    @Column(nullable = false, length = 25)
     private String zipCode;
-
-    @Column(nullable = false, length = 50)
     private String street;
-
-    @Column(nullable = false, length = 25)
     private String streetNumber;
-
-    @Column
     private Integer floorNumber;
-
-    @Column
     private Integer flatNumber;
 
-    public User getUser() {
-        return user;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() { return id; }
 
     public void setId(Long id) {
         this.id = id;
@@ -140,11 +110,5 @@ public class Address {
 
     public void setFlatNumber(Integer flatNumber) {
         this.flatNumber = flatNumber;
-    }
-
-    @Override
-    public String toString() {
-        return addressName + ": " + country + ", " + state + ", " + county + ", " + city + ", " +
-                zipCode + ", " + street + ", " + streetNumber + ", " + floorNumber+ "/" + flatNumber;
     }
 }

@@ -1,27 +1,21 @@
-package hu.ponte.model;
+package hu.ponte.dto;
 
-import hu.ponte.dto.PhoneNumberDTO;
-import jakarta.persistence.*;
+import hu.ponte.model.PhoneNumber;
+import hu.ponte.model.User;
+import jakarta.persistence.Column;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
-@Entity
-@Table(name = "phonennumber")
-public class PhoneNumber {
+public class PhoneNumberDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private Long userId;
 
-    @Column(nullable = false, length = 10)
     private String countryCode;
 
-    @Column(nullable = true, length = 10)
     private String areaCode;
 
-    @Column(nullable = false, length = 20)
     private String phoneNumber;
 
     public Long getId() {
@@ -32,12 +26,12 @@ public class PhoneNumber {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getCountryCode() {
@@ -62,10 +56,5 @@ public class PhoneNumber {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    @Override
-    public String toString(){
-        return this.getCountryCode() + this.getAreaCode() + this.getPhoneNumber();
     }
 }

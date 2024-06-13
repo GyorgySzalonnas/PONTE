@@ -4,8 +4,9 @@ server:
 spring:
   security:
     user:
-      name: postgres
-      password: password
+      name: admin
+      password: admin
+    enable-csrf: false
   jpa:
     properties:
       hibernate:
@@ -21,8 +22,4 @@ spring:
 logging:
   level:
     org:
-      springframework: info
-
-
-
-spring.mvc.log-request-details: true
+      springframework: debug
